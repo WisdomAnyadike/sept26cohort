@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>  
+// var myFood = undefined
+// function callHome(params) {
+//  return 'hi family'
+// }
+
+    console.log(myFood);
+    
+    var myFood = 'Rice'
+
+    console.log(myFood);
+
+ let finalSentence = callHome() + ', hope you guys are fine'
+ console.log(finalSentence);
+ 
+
+
+    
+// function declaration
+function callHome(params) {
+  return 'hi family'
+}
+
+// function expression 
+let callerFunc = function (params) {
+     return 'i called'
+}
+    
+callerFunc();
+
+// IIFE
+
+(function (params) {
+    console.log('hmmm');
+    
+}())
+
+
+// arrow functions
+
+let theFunc =  (params) => {
+
+
+}
+
+
+function multiplyBy2( n ) {
+     return function newone() {
+      return  n * 2  
+     }
+}
+
+console.log(multiplyBy2(4)());
+
+// multiplyBy2(34)
+// multiplyBy2(40)
+
+
+
+
+// HOF 
+
+// foreach map find findIndex filter some every reduce
+ // (arraymethods functions loops)
+
+
+ let arr = [1,2,3,4,5]
+
+ let value = arr.forEach( function ( num , i ) {
+    console.log( num , i );
+    return '67'
+ })
+
+ console.log(value);
+
+ let value2 = arr.map(( num , i , arr )=> {
+ console.log( num , i );
+ 
+ })
+ 
+
+
+//  for (let index = 0; index < arr.length; index++) {
+//    console.log(arr[index]);
+   
+    
+//  }
+
+
+
+
+// function sayHi(params) {
+//     console.log('hiiiii');
+// }
+
+
+
+
+
+
+</script>
