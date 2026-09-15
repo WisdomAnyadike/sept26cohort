@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" oninput="search()" id="inputField" >
+
+<div id="preview">
+
+
+
+</div>
+
+
+
+</body>
+</html>
+<script>
+    let input = document.getElementById('inputField')
+    let outputField = document.getElementById('preview')
+    let products = [
+        "rice",
+        "beans",
+        "tomato",
+        "wheat",
+        "maize",
+    ]
+
+    function search(){
+        let inputValue= input.value.replaceAll(` `,``).toLowerCase();
+
+     let searchWords = products.filter((food)=>{ return food.includes(inputValue) })
+
+      outputField.innerHTML = ''
+     if (searchWords.length === 0) {
+         outputField.innerHTML += `<p> product does not exist </p>`
+     } else {
+     displayProducts(searchWords)
+     }
+
+
+   
+    }
+
+
+    
+
+function displayProducts(value) {
+    for (let index = 0; index < value.length; index++) {
+    outputField.innerHTML += `<p>${value[index]}</p>`
+}  
+}
+
+
+displayProducts(products)
+
+
+
+// function sayWord(text) {
+//     console.log(text);
+    
+// }
+// // let text = 'word'
+// sayWord('word')
+// sayWord('wisdom')
+
+
+</script>
