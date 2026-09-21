@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard · Inkwell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="dashboard.html" class="brand">Inkwell</a>
+      <div class="nav-right">
+        <span class="nav-user" id="navUserEmail">jane@example.com</span>
+        <button type="button" id="logoutBtn" class="btn btn-ghost btn-small">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h1>Hello, <span id="userName">Jane</span></h1>
+      <p>What's on your mind today?</p>
+    </section>
+
+    <!-- New post -->
+    <section class="panel">
+      <h2 id="formTitle">Write a new post</h2>
+
+      <div id="postError" class="message error hidden"></div>
+
+      <form id="postForm">
+        <div class="field">
+          <label for="postTitle">Title</label>
+          <input type="text" id="postTitle" name="postTitle" placeholder="Give it a title">
+        </div>
+
+        <div class="field">
+          <label for="postBody">Content</label>
+          <textarea id="postBody" name="postBody" placeholder="Start writing..."></textarea>
+        </div>
+
+        <button type="submit" id="publishBtn" class="btn">Publish</button>
+      </form>
+    </section>
+
+    <!-- Posts -->
+    <section>
+      <div class="section-head">
+        <h2>Your posts</h2>
+        <span class="count" id="postCount">1 post</span>
+      </div>
+
+      <!-- Show this when there are no posts (remove "hidden") -->
+      <div id="emptyState" class="empty-state hidden">
+        You haven't written anything yet. Your posts will show up here.
+      </div>
+
+      <ul id="postList" class="post-list">
+        <!-- Sample post — this is the markup to generate for each post -->
+        <li class="post">
+          <h3 class="post-title">My first post</h3>
+          <p class="post-meta">Sept 21, 2026</p>
+          <p class="post-body">This is what a post looks like. Replace this sample with posts rendered from your JavaScript.</p>
+          <div class="post-actions">
+            <button type="button" class="btn btn-ghost btn-small edit-btn">Edit</button>
+            <button type="button" class="btn btn-danger btn-small delete-btn">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

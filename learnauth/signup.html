@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up · Inkwell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+  <main class="auth-card">
+    <a href="signup.html" class="brand">Inkwell</a>
+
+    <h1>Create an account</h1>
+    <p class="subtitle">Start writing in less than a minute.</p>
+
+    <div id="signupError" class="message error hidden"></div>
+    <div id="signupSuccess" class="message success hidden"></div>
+
+    <form id="signupForm">
+      <div class="field">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Jane Doe">
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="At least 6 characters">
+      </div>
+
+      <div class="field">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password">
+      </div>
+
+      <div class="field checkbox-field">
+        <input type="checkbox" id="agreeTerms" name="agreeTerms">
+        <label for="agreeTerms">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></label>
+      </div>
+
+      <button type="submit" id="signupBtn" class="btn btn-block" onclick="signUserUp(event)"> Sign up </button>
+    </form>
+
+    <p class="switch-link">Already have an account? <a href="login.html">Log in</a></p>
+  </main>
+
+</body>
+</html>
+<script>
+    let users = []
+
+
+
+    function signUserUp(ev) {
+        ev.preventDefault()
+        let email = document.getElementById('email').value.toLowerCase().trim()
+        let password = document.getElementById('password').value.trim()
+        let confirmPassword = document.getElementById('confirmPassword').value.trim()
+        let fullName = document.getElementById('fullName').value.trim()
+        let agreeTerms = document.getElementById('agreeTerms')
+
+
+       if (!email || ! password || !confirmPassword || !fullName) {
+        alert("all fields are mandatory")  
+       }
+       else if (!agreeTerms.checked) {
+        alert("please agree to terms and conditions")
+       }
+       else if ( users.find((user)=> { return  user.email === email }) ) {
+      alert('user already exists')
+       }  
+       else if (password !== confirmPassword){
+        alert('passwords must match')
+       } 
+      else if ( password.length < 8  ){
+         alert('passwords must be at least 8 characters')
+       } 
+       else {
+        let user = {
+            fullName , 
+            password , 
+             email  , 
+            isAgreed : agreeTerms.checked
+        }
+
+        users.push(user)
+        console.log(users);
+        
+        alert('signUp successful!')
+       }
+    }
+
+                              
+//   let ans =   ('300' !== 200  ||  3 == '3' ) &&  ( 2 === 3 || 'hello' !== 'hello' )
+//   console.log(ans);
+  
+
+
+
+
+// set item 
+localStorage.setItem('studentName' , JSON.stringify({name:'carleed'}))
+
+ // get item 
+let student = JSON.parse(localStorage.getItem('studentName'))
+console.log(student);
+
+// removeItem 
+
+ localStorage.removeItem('studentName')
+console.log(student);
+
+// clear 
+
+localStorage.clear()
+
+
+</script>

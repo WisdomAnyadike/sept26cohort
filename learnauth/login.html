@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in · Inkwell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+  <main class="auth-card">
+    <a href="login.html" class="brand">Inkwell</a>
+
+    <h1>Welcome back</h1>
+    <p class="subtitle">Log in to continue writing.</p>
+
+    <div id="loginError" class="message error hidden"></div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Your password">
+      </div>
+
+      <button type="submit" id="loginBtn" class="btn btn-block">Log in</button>
+    </form>
+
+    <p class="switch-link">New here? <a href="signup.html">Create an account</a></p>
+  </main>
+
+</body>
+</html>
