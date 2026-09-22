@@ -12,8 +12,8 @@
     <div class="navbar-inner">
       <a href="dashboard.html" class="brand">Inkwell</a>
       <div class="nav-right">
-        <span class="nav-user" id="navUserEmail">jane@example.com</span>
-        <button type="button" id="logoutBtn" class="btn btn-ghost btn-small">Log out</button>
+        <span class="nav-user" id="navUserEmail"> loading...</span>
+        <button type="button" id="logoutBtn" class="btn btn-ghost btn-small" onclick="logOut()">Log out</button>
       </div>
     </div>
   </header>
@@ -21,7 +21,7 @@
   <main class="container">
 
     <section class="welcome">
-      <h1>Hello, <span id="userName">Jane</span></h1>
+      <h1>Hello, <span id="userName">loading...</span></h1>
       <p>What's on your mind today?</p>
     </section>
 
@@ -76,3 +76,38 @@
 
 </body>
 </html>
+<script>
+
+let allUsers = JSON.parse(localStorage.getItem('SeptUsers26')) || []
+let currentUserIndex = JSON.parse(localStorage.getItem('currentUserIndex'))
+let currentUser = allUsers[currentUserIndex]
+
+
+function authenticateUser(params) {
+  if (!currentUser) {
+    window.location.href = 'login.html'
+  } else {
+userName.innerHTML = currentUser.fullName
+navUserEmail.innerHTML = currentUser.email
+  }
+}
+
+
+authenticateUser()
+
+
+function logOut(params) {
+  let canLogout = confirm('are you sure ?')
+  if (canLogout) {
+    localStorage.removeItem('currentUserIndex')
+    window.location.href = 'login.html'
+    
+  }
+  
+}
+
+
+
+
+
+</script>

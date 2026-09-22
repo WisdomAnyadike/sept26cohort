@@ -27,7 +27,7 @@
         <input type="password" id="password" name="password" placeholder="Your password">
       </div>
 
-      <button type="submit" id="loginBtn" class="btn btn-block">Log in</button>
+      <button type="button" id="loginBtn" class="btn btn-block" onclick="logUserIn()">Log in</button>
     </form>
 
     <p class="switch-link">New here? <a href="signup.html">Create an account</a></p>
@@ -35,3 +35,37 @@
 
 </body>
 </html>
+<script>
+
+  let allUsers = JSON.parse(localStorage.getItem('SeptUsers26')) || []
+
+  
+function logUserIn() {
+  let email = document.getElementById('email').value.trim()
+  let password = document.getElementById('password').value.trim()
+
+  let foundUser = allUsers.find((user)=> { return user.email === email })
+  let foundUserIndex = allUsers.findIndex((user)=> { return user.email === email })
+  if (!email || !password) {
+     alert('all fields are mandatory')
+  } else {
+
+    if (!foundUser) {
+       alert('user doesnt exist')
+    } else if ( foundUser.password !== password) {
+      alert('invalid credentials')
+    } else {
+      alert('log in successful')
+    localStorage.setItem('currentUserIndex' , JSON.stringify(foundUserIndex))
+     location.href = 'dashboard.html'
+    }
+
+  }
+
+  
+}
+
+
+
+
+</script>

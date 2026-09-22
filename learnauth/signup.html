@@ -52,8 +52,10 @@
 </body>
 </html>
 <script>
-    let users = []
+    let users = JSON.parse(localStorage.getItem('SeptUsers26')) || []
 
+    console.log(users);
+    
 
 
     function signUserUp(ev) {
@@ -89,9 +91,11 @@
         }
 
         users.push(user)
+        localStorage.setItem('SeptUsers26' , JSON.stringify(users))
         console.log(users);
         
         alert('signUp successful!')
+        location.href = 'login.html'
        }
     }
 
@@ -103,21 +107,28 @@
 
 
 
-// set item 
-localStorage.setItem('studentName' , JSON.stringify({name:'carleed'}))
+// // set item 
+// localStorage.setItem('studentName' , JSON.stringify({name:'carleed'}))
 
- // get item 
-let student = JSON.parse(localStorage.getItem('studentName'))
-console.log(student);
+//  // get item 
+// let student = JSON.parse(localStorage.getItem('studentName'))
+// console.log(student);
 
-// removeItem 
+// // removeItem 
 
- localStorage.removeItem('studentName')
-console.log(student);
+//  localStorage.removeItem('studentName')
+// console.log(student);
 
-// clear 
+// // clear 
 
-localStorage.clear()
+// localStorage.clear()
+
+
+
+let value =  '' || null || 0
+console.log(value);
+
+
 
 
 </script>
