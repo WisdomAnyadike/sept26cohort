@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ChatHub</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- Top bar -->
+    <nav class="navbar">
+      <span class="logo">💬 ChatHub</span>
+      <div class="nav-right">
+        <span class="welcome">Welcome, <strong id="userName">User</strong> 👋</span>
+        <button type="button" id="logoutBtn" class="btn btn-danger">Log Out</button>
+      </div>
+    </nav>
+
+    <!-- Welcome message on small screens -->
+    <p class="welcome-mobile">Welcome, <strong id="userNameMobile">User</strong> 👋</p>
+
+    <!-- Chat box -->
+    <section class="chat-container">
+      <div class="chat-header">
+        <h3>General Group</h3>
+        <p>Everyone can see messages sent here</p>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <!-- Example messages (remove these when you load real ones) -->
+        <div class="message">
+          <div class="sender">Ada</div>
+          <div class="text">Hello everyone! 👋</div>
+          <span class="time">10:30 AM</span>
+        </div>
+
+        <div class="message mine">
+          <div class="sender">You</div>
+          <div class="text">Hi Ada, welcome to the group!</div>
+          <span class="time">10:31 AM</span>
+        </div>
+      </div>
+
+      <form class="chat-form" id="chatForm">
+        <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off" required>
+        <button type="submit" id="sendBtn" class="btn btn-primary">Send</button>
+      </form>
+    </section>
+
+  </div>
+
+  <script>
+
+  </script>
+</body>
+</html>
