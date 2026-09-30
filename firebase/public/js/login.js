@@ -10,6 +10,7 @@
 
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
+    var provider = new firebase.auth.GoogleAuthProvider();
 
 
   function logInUser(){
@@ -30,3 +31,22 @@
   });
 
   }
+
+
+  function signInWithGoogle(params) {
+    firebase.auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    /** @type {firebase.auth.OAuthCredential} */
+    var credential = result.credential;
+    var token = credential.accessToken;
+    var user = result.user;
+    window.location.href = 'dashboard.html'
+  }).catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    var email = error.email;
+    var credential = error.credential;
+    alert(errorMessage)
+  });
+}

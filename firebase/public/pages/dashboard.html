@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - ChatHub</title>
   <link rel="stylesheet" href="../css/style.css">
+      <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -14,8 +17,8 @@
     <nav class="navbar">
       <span class="logo">💬 ChatHub</span>
       <div class="nav-right">
-        <span class="welcome">Welcome, <strong id="userName">User</strong> 👋</span>
-        <button type="button" id="logoutBtn" class="btn btn-danger">Log Out</button>
+        <span class="welcome">Welcome, <strong id="userName"> Loading...</strong> 👋</span>
+        <button type="button" onclick="logUserOut()" id="logoutBtn" class="btn btn-danger">Log Out</button>
       </div>
     </nav>
 
@@ -31,29 +34,23 @@
 
       <div class="chat-messages" id="chatMessages">
         <!-- Example messages (remove these when you load real ones) -->
-        <div class="message">
+        <!-- <div class="message">
           <div class="sender">Ada</div>
           <div class="text">Hello everyone! 👋</div>
           <span class="time">10:30 AM</span>
-        </div>
+        </div> -->
 
-        <div class="message mine">
-          <div class="sender">You</div>
-          <div class="text">Hi Ada, welcome to the group!</div>
-          <span class="time">10:31 AM</span>
-        </div>
+       
       </div>
 
       <form class="chat-form" id="chatForm">
         <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off" required>
-        <button type="submit" id="sendBtn" class="btn btn-primary">Send</button>
+        <button type="button" onclick="sendMessage()" id="sendBtn" class="btn btn-primary">Send</button>
       </form>
     </section>
 
   </div>
 
-  <script>
-
-  </script>
+  <script src="../js/dashboard.js"> </script>
 </body>
 </html>
